@@ -23,38 +23,39 @@
 
     <button id="add-new-button" class="waves-effect waves-light btn">Add New Card</button>
 
-    <div id="product-list" class="row">       
+    <div id="product-list" class="row">
 
     </div>
-    
+
 
     <template id="product-template">
-            <div class="col s4 m4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="https://placekitten.com/200/200">
-                            <span class="card-title">{{card-title}}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                        <script>
-                            alert("I'm inside the template")
-                        </script>
-                    </div>
+        <div class="col s4 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://placekitten.com/200/200">
+                    <span class="card-title">{{card-title}}</span>
                 </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+                <script>
+                    alert("I'm inside the template")
+                </script>
+            </div>
+        </div>
     </template>
 
     <script>
-       
-       const newbutton = document.getElementById("add-new-button");
+        const newbutton = document.getElementById("add-new-button");
         const templateTag = document.getElementById("product-template");
         const productListView = document.getElementById("product-list")
-
+        newbutton.addEventListener('click',function(){
+            productListView.innerHTML += templateTag.innerHTML
+        })
     </script>
 </body>
 

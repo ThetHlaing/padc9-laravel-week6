@@ -1,30 +1,37 @@
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
-    class Animal {
-      constructor(name) {
-        this.name = name;
-      }
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
 
-      speak() {
-        console.log(`${this.name} speak`);
-      }
-    }
+  speak() {
+    console.log(`${this.name} speak`);
+  }
+}
 
-    class Dog extends Animal {
-      constructor(name) {
-        super(name);
-      }
+class Dog extends Animal {
+  constructor(name) {
+    super(name);
+  }
 
-      speak() {
-        super.speak();
-        console.log(`${this.name} bark`);
-      }
+  speak() {
+    super.speak();
+    console.log(`${this.name} bark`);
+  }
 
-      static somemethod(){
-        console.log("Static method trigger");
-      }
+  static anotherMethod(){
 
-    }  
-    
+  }
 
-    Dog.somemethod();
+  static somemethod() {
+    console.log("Static method trigger");
+    Dog.anotherMethod()
+  }
+
+}
+
+// const newDog = new Dog();
+// newDog.speak();
+
+Dog.somemethod();

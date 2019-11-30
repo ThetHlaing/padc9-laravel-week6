@@ -31,18 +31,32 @@
         const label = document.querySelector('label');
         const anchor = document.querySelector('a');
 
-        
+        window.addEventListener('resize', function (event) {
+
+            label.innerHTML = "Widow is resizing";
+        })
+
+        const clickHandler = function (event) {
+            console.log(event.target);
+            alert("P tag is clicked");
+        }
+
+        document.querySelector('p:nth-child(3)')
+            .addEventListener('click', clickHandler)
+
+        document.querySelector('p:nth-child(2)')
+            .addEventListener('click', clickHandler)
     </script>
 
     <style>
         label {
-            color: red;            
+            color: red;
             font-size: 2em;
             transition: color 1s ease, font 0.8s ease;
         }
 
         label.animate {
-            font-size:3em;
+            font-size: 3em;
             color: blue;
         }
     </style>

@@ -6,6 +6,7 @@
       constructor(name) {
         this.name = name;             
         this.food = 'nothing';
+//        this.breakfast;
       }      
 
       set breakfast(value){
@@ -20,5 +21,5 @@
     let a = new Animal('Mitzie');     
     a.breakfast = 'Cake';
     console.log(a.breakfast);
-    a.dinner = "Stake";
-    console.log(a.dinner);
+    // a.dinner = "Stake";
+    // console.log(a.dinner);

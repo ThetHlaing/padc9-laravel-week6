@@ -1,24 +1,28 @@
 const obj = {
-    myVar: 'foo',
-    
-    myFunc: () => {
-      this.myVar = 'bar'; 
-      console.log(this);
-    }
-  };
+  myVar: 'foo',
 
-  const obj2 = {
-    myVar: 'foo',
-    
-    myFunc: function() { 
-      console.log(this);
-    }
-  };
+  myFunc: () => {
+    //this.myVar = 'bar';
+    console.log(this);
+  }
+};
 
-  obj.myFunc();
-  obj2.myFunc();
+const obj2 = {
+  myVar: 'foo',
 
-  //const returnValueInstantly = 
+  myFunc: function () {
+    console.log(this);
+  }
+};
+
+// obj.myFunc();
+// obj2.myFunc();
+
+//const returnValueInstantly = 
 
 
-  //const returnObjectInstantly = 
+//const returnObjectInstantly = 
+
+const sum = a => a + 2;
+
+console.log(sum(1, 2));

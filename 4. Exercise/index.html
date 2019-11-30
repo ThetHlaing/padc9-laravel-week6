@@ -34,14 +34,40 @@
   <!-- Implement display method which return div with image, name and breed-->
   <!-- Create 3 dog objects and display inside each li-->
   <ul id="dog-breed">
-    <li></li>
+    <li>First Li</li>
     <li></li>
     <li></li>
   </ul>
   <script>
+    class Dog {
+      constructor(image, breed, name) {
+        this.image = image;
+        this.breed = breed;
+        this.name = name;
+      }
 
+      display() {
+        return `
+            <div>
+                <img src="${this.image}"
+                <div>${this.name} - ${this.breed}</div>
+            </div>
+        `;
+      }
+    }
+
+    const doga = new Dog("https://embarkvet.com/wp-content/uploads/2018/07/LabradorRetriever_dogdnatest.jpg", "လာဘရာဒေ",
+      "Yan Lone");
+
+    const dogb = new Dog("http://www.shwemom.com/wp-content/uploads/dog-ic-4-696x378.jpg", "Another breed",
+      "Another Name");
 
     //select li and insert returned html as object
+    document.querySelector('#dog-breed li:first-child').innerHTML = doga.display();
+
+    document.querySelector('#dog-breed li:nth-child(2)').innerHTML = dogb.display();
+
+    document.querySelector('#dog-breed li:last-child').innerHTML = doga.display();
   </script>
 </body>
 

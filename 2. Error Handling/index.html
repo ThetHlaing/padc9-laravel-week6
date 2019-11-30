@@ -11,13 +11,23 @@
   <script>
     function randomNumber(a, b) {
       ///
-      const result = 5;
+      const result = 2;
+
+      if (result < a || result > b) {
+        throw Error("Unexcepted number for the given range returned");
+      }
 
       return result;
     }
     const array = [1, 2, 3, 5];
-    const randomIndex = randomNumber(0, array.length - 1);
-    document.querySelector('div').textContent = array[randomIndex];
+    try {
+      const randomIndex = randomNumber(0, array.length - 1);
+      document.querySelector('div').textContent = array[randomIndex];
+    } catch (ex) {
+      if (ex.message === "Unexcepted number for the given range returned") {
+        document.querySelector('div').textContent = "Unexcepted range is given from the randomNumber function"
+      }
+    }
   </script>
 </body>
 

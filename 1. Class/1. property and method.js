@@ -3,15 +3,21 @@
 
     class Animal {
       
-      constructor(name) {
-        this.name = name;             
+      constructor(name,leg = 2) {
+        this.name = name;   
+        this.leg = leg;       
       }
       
       speak(){        
-        console.log(`${this.name} speak`);
+        console.log(`${1} ${1} speak`);
+        //console.log(this.name + " speak" );
+      }
+
+      sleep(){
+        
       }
     }
    
     let a = new Animal('Mitzie');    
-    console.log(a.name);
+    console.log(a.leg);
     a.speak();
