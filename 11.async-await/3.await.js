@@ -1,14 +1,12 @@
-function execute() {
-    
-    const result2 = promiseFunction(1)
+async function execute() {
+
+    const result2 = await promiseFunction(1)
         .then((result) => promiseFunction(result))
-        .then(finalresult => {
-            console.log('inside promise', finalresult);
-            return finalresult;
-        }).catch((error) => { console.log(error) });
+        .then(finalresult => finalresult)
+        .catch((error) => { console.log(error) });
 
     console.log("result variable = ", result2);
-
+       
     return result2;
 
 }
@@ -19,4 +17,4 @@ function promiseFunction(input) {
 }
 
 
-console.log(execute());
+execute();

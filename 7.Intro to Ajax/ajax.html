@@ -13,29 +13,49 @@
     <ul id="movie_list">
 
     </ul>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
         const apiUrl = 'http://www.omdbapi.com/?s=spider man&apikey=d088aa8d';
         //Fetch
-        fetch(apiUrl)
+
+        async function datacall(){
+            const result = await fetch(apiUrl)
             .then(data => data.json())
             .then(result => {
-                displayMovie(result)
+                return result
             });
-
-        // //JQuery Ajax
+            
+            displayMovie(result);
+        }
+        datacall();
+        //console.log(result);
+        // // //JQuery Ajax
         // $.ajax({
         //     url: apiUrl
-        // }).done((data) => {
+        // }).done(data => {
         //     displayMovie(data);
         // });
         console.log("After ajax call");
 
         function displayMovie(data) {
-            
+            console.log(data);
+            const template = document.getElementById('movieTemplate').innerHTML;
+            const viewport = document.getElementById('movie_list')
+            for (const movie of data.Search) {
+                let newTemplate = template.replace("{{image_url}}", movie.Poster);
+                console.log(newTemplate);
+                viewport.innerHTML += newTemplate.replace("{{title}}", movie.Title);
+            }
         }
     </script>
+
+    <template id="movieTemplate">
+        <li>
+            <img src="{{image_url}}" alt="" />
+            <div>{{title}}</div>
+        </li>
+    </template>
 
 </body>
 
